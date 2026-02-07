@@ -2,15 +2,15 @@ from django.shortcuts import render
 from .models import About
 
 
-def about(request):
-	"""
-	Display the About page.
-	"""
+def about_me(request):
+    """
+    Renders the About page
+    """
 
-	about_page = About.objects.order_by('-updated_on').first()
+    about = About.objects.all().order_by('-updated_on').first()
 
-	return render(
-		request,
-		"about/about.html",
-		{"about": about_page},
-	)
+    return render(
+        request,
+        "about/about.html",
+        {"about": about},
+    )

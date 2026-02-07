@@ -1,34 +1,17 @@
-{% extends "base.html" %} {% load static %} {% block content %}
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ about.title }}</h1>
-                {% if about.updated_on %}
-                <p class="post-subtitle">Updated: {{ about.updated_on }}</p>
-                {% endif %}
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img
-                    src="{% static 'images/default.jpg' %}"
-                    class="scale"
-                    alt="placeholder"
-                />
-            </div>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4 text-center">
+            <img src="{% static 'images/nobody.jpg' %}" width="75%" />
+        </div>
+        <div class="col-8">
+            <h2>{{ about.title }}</h2>
+            {{ about.content | safe }}
         </div>
     </div>
-</div>
-
-<div class="container">
     <div class="row">
-        <div class="col card mb-4 mt-3 left top">
-            <div class="card-body">
-                {% if about.content %}
-                <p class="card-text">{{ about.content | safe }}</p>
-                {% else %}
-                <p class="card-text">About content coming soon.</p>
-                {% endif %}
-            </div>
+        <div class="col text-right">
+            <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
     </div>
 </div>
