@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1', 'localhost']
 
@@ -111,13 +111,13 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Security settings for production
 SECURE_SSL_REDIRECT = (
-    os.environ.get('SECURE_SSL_REDIRECT', 'False') == 'True'
+    os.environ.get("SECURE_SSL_REDIRECT", "False") == "True"
 )
 SESSION_COOKIE_SECURE = (
-    os.environ.get('SESSION_COOKIE_SECURE', 'False') == 'True'
+    os.environ.get("SESSION_COOKIE_SECURE", "False") == "True"
 )
 CSRF_COOKIE_SECURE = (
-    os.environ.get('CSRF_COOKIE_SECURE', 'False') == 'True'
+    os.environ.get("CSRF_COOKIE_SECURE", "False") == "True"
 )
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_SECURITY_POLICY = {
@@ -129,16 +129,28 @@ SECURE_CONTENT_SECURITY_POLICY = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
 
